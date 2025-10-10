@@ -1,6 +1,6 @@
 class Reserva:
     # Día 1:
-    def init(self, cliente, habitacion, dias):
+    def __init__(self, cliente, habitacion, dias):
         self.cliente = cliente
         self.habitacion = habitacion
         self.dias = dias
@@ -8,7 +8,7 @@ class Reserva:
         self.pagada = False
 
     # Día 2:
-    def str(self):
+    def __str__(self):
         estado = "Pagada" if self.pagada else "Pendiente"
         return f"Reserva de {self.cliente.nombre} - Habitación {self.habitacion.numero} - Días: {self.dias} - Total: ${self.total} ({estado})"
 

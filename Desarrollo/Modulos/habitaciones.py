@@ -1,12 +1,12 @@
 class Habitacion:
     # Día 1:
-    def _init_(self, numero, tipo, tarifa, estado="disponible"):
+    def __init__(self, numero, tipo, tarifa, estado="disponible"):
         self.numero = numero
         self.tipo = tipo
         self.tarifa = tarifa
         self.estado = estado
 
-    def _str_(self):
+    def __str__(self):
         return f"Habitación {self.numero} | Tipo: {self.tipo} | Tarifa: ${self.tarifa} | Estado: {self.estado}"
 
     def esta_disponible(self):
