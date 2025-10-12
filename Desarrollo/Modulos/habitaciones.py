@@ -26,7 +26,7 @@ class Habitacion:
 
         for h in lista_habitaciones:
             if h.numero == numero:
-                print("Ya existe una habitación con ese número.")
+                print("Ya existe una habitación con el numero ingresado.")
                 return
 
         tipo = input("Tipo de habitación (Sencilla/Doble/Suite): ")
@@ -34,7 +34,7 @@ class Habitacion:
 
         nueva = Habitacion(numero, tipo, tarifa)
         lista_habitaciones.append(nueva)
-        print(f"\nHabitación {numero} registrada exitosamente.")
+        print(f"\nLa habitación {numero} fue registrada exitosamente.")
 
     #Metodo para mostrar disponibles
     def mostrar_disponibles(lista_habitaciones):

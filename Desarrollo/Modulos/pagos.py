@@ -32,7 +32,7 @@ class Pago:
         print("\nMétodos de pago disponibles: efectivo, tarjeta, transferencia, PayPal")
         metodo = input("Método de pago: ").lower()
         if metodo not in ["efectivo", "tarjeta", "transferencia", "paypal"]:
-            print("Método de pago inválido.")
+            print("El método de pago es inválido.")
             return
 
         print(f"Total a pagar: ${reserva.total}")
@@ -44,4 +44,4 @@ class Pago:
         reserva.pagada = True
         nuevo_pago = Pago(reserva, metodo, monto)
         lista_pagos.append(nuevo_pago)
-        print("\nPago registrado exitosamente.")
+        print("\nEl pago fue registrado exitosamente.")

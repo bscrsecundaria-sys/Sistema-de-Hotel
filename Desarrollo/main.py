@@ -12,7 +12,9 @@ pagos = []
 
 #Menu Iterativo
 while True:
-    print("\nSISTEMA HOTELERO - MENÚ PRINCIPAL")
+    print("")
+    print("=" * 40)
+    print("SISTEMA HOTELERO")
     print("1. Registrar cliente")
     print("2. Registrar nueva habitación")
     print("3. Mostrar habitaciones disponibles")
@@ -22,8 +24,9 @@ while True:
     print("7. Consultar pagos")
     print("8. Finalizar reserva")
     print("9. Salir")
+    print("=" * 40)
 
-    opcion = input("\nSeleccione una opción: ")
+    opcion = input("\n- Que opcion deseas realizar: ").strip()
 
     if opcion == "1":
         Cliente.registrar_cliente(clientes)
@@ -67,4 +70,4 @@ while True:
         break
 
     else:
-        print("Opción no válida. Intente de nuevo.")
+        print("Opción no válida. Ingrese una opcion valida.")

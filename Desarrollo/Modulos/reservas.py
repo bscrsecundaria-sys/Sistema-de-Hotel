@@ -84,4 +84,4 @@ class Reserva:
         reserva = lista_reservas[idx]
         reserva.habitacion.liberar()
         lista_reservas.remove(reserva)
-        print(f"Reserva finalizada. Habitación {reserva.habitacion.numero} liberada.")
+        print(f"Reserva finalizada. \nLa Habitación {reserva.habitacion.numero} ahora se encuentra disponible.")

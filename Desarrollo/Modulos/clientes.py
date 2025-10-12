@@ -7,7 +7,7 @@ class Cliente:
 
     #Dia 2:
     def __str__(self):
-        return f"{self.nombre} (Doc: {self.documento}, Tel: {self.telefono})"
+        return f"{self.nombre} (D.I: {self.documento}, Cel: {self.telefono})"
 
     #Dia 3: 
     def registrar_cliente(lista_clientes):
@@ -17,4 +17,4 @@ class Cliente:
         telefono = input("Teléfono: ")
         nuevo = Cliente(nombre, documento, telefono)
         lista_clientes.append(nuevo)
-        print(f"\n Cliente {nombre} registrado correctamente.")
+        print(f"\nEl cliente {nombre} fue registrado correctamente.")
