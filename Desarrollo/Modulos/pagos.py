@@ -1,47 +1,59 @@
 class Pago:
-    #Dia 1:
-    def __init__(self, reserva, metodo, monto):
+    # Día 1: Constructor
+    def init(self, reserva, metodo, monto):
         self.reserva = reserva
         self.metodo = metodo
         self.monto = monto
 
-    def __str__(self):
+    def str(self):
         return f"Pago de ${self.monto} - Método: {self.metodo} - Cliente: {self.reserva.cliente.nombre}"
 
-    #Dia 2:
-    def registrar_pago(lista_pagos, reservas):
-        print("\nRegistrar pago")
-        if not reservas:
+    # Día 2: Registrar pago
+    def registrar_pago(lista_pagos, lista_reservas):
+        print("\n--- REGISTRAR PAGO ---")
+
+        if not lista_reservas:
             print("No hay reservas registradas.")
             return
 
-        for i, r in enumerate(reservas):
-            print(f"{i+1}. {r}")
+        # Mostrar reservas pendientes de pago
+        print("\nReservas disponibles para pago:")
+        for numero_reserva, reserva in enumerate(lista_reservas, start=1):
+            print(f"{numero_reserva}. {reserva}")
 
-        idx = int(input("Seleccione la reserva a pagar: ")) - 1
-        if idx < 0 or idx >= len(reservas):
+        # Seleccionar reserva
+        seleccion_reserva = int(input("Seleccione el número de la reserva a pagar: ")) - 1
+        if seleccion_reserva < 0 or seleccion_reserva >= len(lista_reservas):
             print("Selección inválida.")
             return
-        
-        #Dia 3:
-        reserva = reservas[idx]
-        if reserva.pagada:
+
+        reserva_seleccionada = lista_reservas[seleccion_reserva]
+        if reserva_seleccionada.pagada:
             print("Esta reserva ya fue pagada.")
             return
 
+        #Dia 3: Facturacion de pagos
+        # Seleccionar método de pago
         print("\nMétodos de pago disponibles: efectivo, tarjeta, transferencia, PayPal")
-        metodo = input("Método de pago: ").lower()
-        if metodo not in ["efectivo", "tarjeta", "transferencia", "paypal"]:
-            print("Método de pago inválido.")
+        metodo_pago = input("Método de pago: ").lower()
+        if metodo_pago not in ["efectivo", "tarjeta", "transferencia", "paypal"]:
+            print("El método de pago es inválido.")
             return
 
-        print(f"Total a pagar: ${reserva.total}")
-        monto = float(input("Monto pagado: "))
-        if monto < reserva.total:
+        # Ingresar monto
+        print(f"Total a pagar: ${reserva_seleccionada.total}")
+        try:
+            monto_pagado = float(input("Monto pagado: "))
+        except ValueError:
+            print("Debe ingresar un valor numérico.")
+            return
+
+        if monto_pagado < reserva_seleccionada.total:
             print("El monto pagado es insuficiente.")
             return
 
-        reserva.pagada = True
-        nuevo_pago = Pago(reserva, metodo, monto)
+        # Registrar pago
+        reserva_seleccionada.pagada = True
+        nuevo_pago = Pago(reserva_seleccionada, metodo_pago, monto_pagado)
         lista_pagos.append(nuevo_pago)
-        print("\nPago registrado exitosamente.")
+        print(f"\nPago registrado exitosamente para {reserva_seleccionada.cliente.nombre}.")
