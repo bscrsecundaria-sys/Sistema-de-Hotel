@@ -10,7 +10,7 @@ class Pago:
 
     # Día 2: Registrar pago
     def registrar_pago(lista_pagos, lista_reservas):
-        print("\n--- REGISTRAR PAGO ---")
+        print("\nREGISTRAR PAGO")
 
         if not lista_reservas:
             print("No hay reservas registradas.")

@@ -1,19 +1,19 @@
-# SISTEMA HOTELERO - Archivo principal (main.py)
-# Controla el flujo principal del programa
+#SISTEMA HOTELERO - Archivo principal (main.py)
+#Controla el flujo principal del programa
 
-# Importación de módulos
+#Importación de módulos
 from Modulos.clientes import Cliente
 from Modulos.habitaciones import Habitacion
 from Modulos.reservas import Reserva
 from Modulos.pagos import Pago
 
-# Listas globales donde se almacenan las instancias
+#Listas globales donde se almacenan las instancias
 clientes = []       # Lista de objetos Cliente
 habitaciones = []   # Lista de objetos Habitacion
 reservas = []       # Lista de objetos Reserva
 pagos = []          # Lista de objetos Pago
 
-# Menú iterativo principal del sistema
+#Menú iterativo principal del sistema
 while True:
     # Encabezado visual del menú
     print("")
@@ -58,9 +58,6 @@ while True:
 
     #6: Registrar un pago asociado a una reserva
     elif opcion == "6":
-        if not reservas:  # Validación: si no hay reservas activas
-            print("No hay reservas para registrar pagos.")
-            continue
         Pago.registrar_pago(pagos, reservas)
 
     #7: Consultar pagos registrados
@@ -74,9 +71,6 @@ while True:
 
     #8: Finalizar una reserva activa
     elif opcion == "8":
-        if not reservas:  # Validación: si no hay reservas activas
-            print("No hay reservas activas para finalizar.")
-            continue
         Reserva.finalizar_reserva(reservas, habitaciones)
 
     #9: Salir del sistema
